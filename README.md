@@ -58,9 +58,9 @@ Currently only supported for Chrome and Firefox web browsers.
 - **Email:**
 - **LinkedIn:**
 
-### Name
-- **Email:**
-- **LinkedIn:**
+### Arjun Atwal
+- **atwalarjun@icloud.com:**
+- **https://www.linkedin.com/in/arjun-atwal/:**
 
 ### Name
 - **Email:**
