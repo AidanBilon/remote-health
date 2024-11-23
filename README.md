@@ -67,5 +67,5 @@ Currently only supported for Chrome and Firefox web browsers.
 - **LinkedIn: https://www.linkedin.com/in/farhan-jarif/**
 
 ### Name
-- **Email:**
-- **LinkedIn:**
+- **Email: aryansdhawan@gmail.com**
+- **LinkedIn: https://www.linkedin.com/in/aryan-dhawan/**
