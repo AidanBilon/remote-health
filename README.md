@@ -60,7 +60,7 @@ Currently only supported for Chrome and Firefox web browsers.
 
 ### Arjun Atwal
 - **atwalarjun@icloud.com:**
-- **https://www.linkedin.com/in/arjun-atwal/:**
+- **https://www.linkedin.com/in/arjun-atwal:**
 
 ### Name
 - **Email:**
