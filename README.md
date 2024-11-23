@@ -62,9 +62,9 @@ Currently only supported for Chrome and Firefox web browsers.
 - **atwalarjun@icloud.com:**
 - **https://www.linkedin.com/in/arjun-atwal/:**
 
-### Name
-- **Email:**
-- **LinkedIn:**
+### Farhan Jarif
+- **Emai: fajarif@uwaterloo.ca**
+- **LinkedIn: https://www.linkedin.com/in/farhan-jarif/**
 
 ### Name
 - **Email:**
