@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 import { db, collection, addDoc } from './firebase';
@@ -14,11 +14,26 @@ const Dashboard = () => {
 
     const fetchOutput = async () => {
         try {
+            // Reference to the document
+            const docRef = doc(db, 'output', 'output');
+
+            // Update the fields to empty strings
+            await updateDoc(docRef, {
+                [0]: "",
+                [1]: ""
+            });
+
+            console.log("Fields cleared successfully!");
+        } catch (error) {
+            console.error("Error clearing fields: ", error);
+        }
+
+        try {
             const docRef = doc(db, 'output', 'output');
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                setOutput(data.output1[1] || 'No output1 found');
+                setOutput(data.output1[0] || 'No output1 found');
             } else {
                 setOutput('No such document!');
             }
