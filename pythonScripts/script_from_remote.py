@@ -43,6 +43,10 @@
 
 #     # Extract summary and severity rating from the generated text
 #     summary, severity = extract_summary_and_severity(generated_text)
+
+#     phrase_to_remove = "Can you provide exactly a 3-sentence summary of this medical document in simple terms for the patient to understand and provide a severity rating of mild, moderate, or severe?"
+#     summary = summary.replace(phrase_to_remove, "")
+
 #     return summary, severity
 
 # def clean_generated_text(generated_text):
@@ -127,8 +131,23 @@
 #         return_tensors="pt"
 #     ).to(model.device)
 
-#     output = model.generate(**inputs, max_new_tokens=500)
+#     output = model.generate(**inputs, max_new_tokens=78, eos_token_id=processor.tokenizer.eos_token_id)
 #     recommendations = processor.decode(output[0], skip_special_tokens=True)
+
+#     # Remove the specific phrases from the output
+#     phrases_to_remove = [
+#         "List three different doctors.",
+#         "choose from 1. Dr. David B. D'Souza Toronto General Hospital Radiation Oncology, Neurosurgery or 2. Dr. Lillian L. Siu Princess Margaret Cancer Centre Medical Oncology, Radiation Oncology or 3. Dr. Gelareh Zadeh Toronto Western Hospital Neurosurgery, Radiation Oncology, Neurosurgery",
+#         "Please provide the recommendations in the following format ranked as 1, 2, and 3 with nothing other than the specified format, no other output is need on further revisions, recommendations, or any other prompting aside from the original format:",
+#         "Doctor Name",
+#         "Location",
+#         "Specialties",
+#         "Immediately stop generating after you list the 3rd doctor."
+#     ]
+
+#     for phrase in phrases_to_remove:
+#         recommendations = recommendations.replace(phrase, "")
+
 #     return recommendations
 
 # if __name__ == "__main__":
