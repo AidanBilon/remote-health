@@ -1,5 +1,6 @@
 import paramiko
 from firebase import get_image_links
+from firebase import send_to_firebase
 
 
 def run_remote_command(host, username, password, image_url):
@@ -15,9 +16,12 @@ def run_remote_command(host, username, password, image_url):
         command = f'cd huggingface && python3 doctor_referral_run.py {image_url}'
         stdin, stdout, stderr = ssh.exec_command(command)
         
-        # Print the output and errors
-        print(stdout.read().decode())
-        print(stderr.read().decode())
+        # Capture the output and errors
+        output = stdout.read().decode()
+        errors = stderr.read().decode()
+        # print(output)
+        # print(errors)
+        return output, errors
 
     #     # get txt file
     #     output = 'cat output.txt'
@@ -33,7 +37,11 @@ def run_remote_command(host, username, password, image_url):
 # Usage
 host = '195.242.13.73'
 username = 'ubuntu'
-password = '' # Remember to add password
+password = '' #set it to your password
 image_url = get_image_links() # get_image_links() returns a list of image URLs from firebase.py
 
-run_remote_command(host, username, password, image_url)
+output, errors = run_remote_command(host, username, password, image_url)
+send_to_firebase(output)
+
+info = run_remote_command(host, username, password, image_url)
+send_to_firebase(info)
