@@ -20,7 +20,8 @@ def get_image_links():
 
 #send data to firebase
 def send_to_firebase(info):
-    # Add a new document
-    db.collection("output").add({
-        "output": info
+    # Update the document
+    doc_ref = db.collection("output").document("output")
+    doc_ref.update({
+        "output1": info
     })
