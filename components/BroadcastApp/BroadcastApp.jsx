@@ -163,6 +163,7 @@ export default function BroadcastApp() {
         <title>{title}</title>
       </Head>
       <div className='flex flex-col h-[100dvh] items-center bg-surface'>
+        
         <ToasterBar />
         <StatusBar />
         <StreamPreview previewRef={previewRef} />
@@ -174,6 +175,7 @@ export default function BroadcastApp() {
             videoStream={videoStream}
           />
         )}
+        
       </div>
       <Modal show={modalActive} onClose={toggleModal} {...modalProps}>
         {modalContent}
