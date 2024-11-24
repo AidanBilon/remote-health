@@ -33,7 +33,7 @@ def run_remote_command(host, username, password, image_url):
 # Usage
 host = '195.242.13.73'
 username = 'ubuntu'
-password = 'dW7jg1BuyS'
+password = '' # Remember to add password
 image_url = get_image_links() # get_image_links() returns a list of image URLs from firebase.py
 
 run_remote_command(host, username, password, image_url)
