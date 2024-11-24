@@ -10,7 +10,7 @@ export default function Landing() {
         <link rel="icon" href="/blacklogo.png" />
       </Head>
       <div>
-        <nav className="bg-gray-800 text-white">
+        <nav className="bg-purple-500 text-white">
           <div className="container mx-auto px-4 flex justify-between items-center h-16">
             <a href="#" className="text-xl font-bold">RemoteHealth</a>
             <div className="hidden md:flex space-x-6">
@@ -51,14 +51,14 @@ export default function Landing() {
               />
             </div>
             <Link href="/dashboard" legacyBehavior>
-              <a className="block w-full text-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
+              <a className="block w-full text-center px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-700">
                 Login
               </a>
             </Link>
           </form>
           <p className="text-sm text-center text-gray-600 mt-4">
             Don't have an account?{' '}
-            <a href="#" className="text-blue-500 hover:underline">
+            <a href="#" className="text-purple-500 hover:underline">
               Sign Up
             </a>
           </p>

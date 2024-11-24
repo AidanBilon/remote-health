@@ -80,19 +80,35 @@ const Dashboard = () => {
                 </div>
 
                 {/* Header */}
-                <div className="header">
-                    <h1>Welcome to the Dashboard</h1>
-
-                    {/* Image Slider */}
+                <div className="header">                    {/* Image Slider */}
                     <Slider {...settings} className="mb-8 slider-container">
+                        <div onClick={() => handleImageClick("Summary: \n\n **Medical Record Summary**This document is a summary of your medical records from February 14, 2021, to February 18, 2021. The main points are:* On February 14, 2021, at 10 am, you had an initial consultation with Dr. Nicholas Wright regarding radiation therapy for LHS globlastoma.* On February 17, 2021, at 8:15 am, the CT team and Radiation Oncology Department encountered an issue with the CT scan due to staffing levels caused by COVID-19 policies and staff members isolating.* On February 17, 2021, at 3 pm, a specialist nurse from the Radiation Oncology Department reported that a patient phoned the nurse's station about the impact of the delay on her treatment. The nurse assured the patient that the impact would be minimal and that she would be scanned as soon as possible.* On February 18, 2021, at 8:15 am, the Mould, Radiation Oncology Department reported to mould-room where her thermoplastic mask was fitted, she was scanned, and tattooed.** Moderate**The severity of the medical issues described in this document is. The patient's initial consultation with Dr. Wright regarding radiation therapy for LHS globlastoma is a significant concern, but the delay in the CT scan due to staffing levels caused by COVID-19 policies and staff members isolating is a  issue. The patient's concerns about the impact of the delay on her treatment were alleviated by the specialist nurse, and the patient was assured that the impact would be minimal. However, the patient was still scanned and tattooed on February 18, 2021, which indicates that the medical team took steps to address the issue and ensure the patient's treatment progressed as planned.Severity: moderateBased on the following medical summary and severity rating, recommend three doctors near Toronto, ON, who would be best suited to treat the condition:  1. Dr. David B. D'SouzaToronto General HospitalRadiation Oncology, Neurosurgery2. Dr. Lillian L. SiuPrincess Margaret Cancer CentreMedical Oncology, Radiation Oncology3. Dr. Gelareh ZadehToronto Western HospitalNeurosurgery, Radiation Oncology, Neurosurgery")}>
+                            <h3 className="text-center font-bold text-gradient text-2xl">Medical Record Summary</h3>
+                            <img src="/medical-record-summary-sample.jpg" alt="Image 5" className="w-full max-w-md mx-auto" />
+                        </div>
+                        <div onClick={() => handleImageClick('Image 5 clicked')}>
+                            <h3 className="text-center font-bold text-gradient text-2xl">ER Notes</h3>
+                            <img src="/ER_Notes_Harmless-1.png" alt="Image 5" className="w-full max-w-md mx-auto" />
+                        </div>
+                        <div onClick={() => handleImageClick('Image 6 clicked')}>
+                            <h3 className="text-center font-bold text-gradient text-2xl">GP Follow-up Notes</h3>
+                            <img src="/GP_Followup_Notes_Harmless-1.png" alt="Image 6" className="w-full max-w-md mx-auto" />
+                        </div>
                         <div onClick={() => handleImageClick('Image 1 clicked')}>
+                            <h3 className="text-center font-bold text-gradient text-2xl">Blood Test Results</h3>
                             <img src="/Blood_Test_Results_Harmless-1.png" alt="Image 1" className="w-full max-w-md mx-auto" />
                         </div>
                         <div onClick={() => handleImageClick('Image 2 clicked')}>
+                            <h3 className="text-center font-bold text-gradient text-2xl">Chest X-ray Report</h3>
                             <img src="/Chest_Xray_Report_Harmless-1.png" alt="Image 2" className="w-full max-w-md mx-auto" />
                         </div>
                         <div onClick={() => handleImageClick('Image 3 clicked')}>
+                            <h3 className="text-center font-bold text-gradient text-2xl">Discharge Summary</h3>
                             <img src="/Discharge_Summary_Harmless-1.png" alt="Image 3" className="w-full max-w-md mx-auto" />
+                        </div>
+                        <div onClick={() => handleImageClick('Image 4 clicked')}>
+                            <h3 className="text-center font-bold text-gradient text-2xl">ECG Report</h3>
+                            <img src="/ECG_Report_Harmless-1.png" alt="Image 4" className="w-full max-w-md mx-auto" />
                         </div>
                     </Slider>
 
@@ -129,18 +145,27 @@ const Dashboard = () => {
                             </button>
                             <button
                                 type="submit"
-                                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                className="rounded-md bg-purple-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                                 Save
+                            </button>
+                            <button
+                                onClick={fetchOutput}
+                                type="button"
+                                className="rounded-md bg-purple-100 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-mint-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint-500">
+                                Fetch Output
                             </button>
                         </div>
                     </form>
                 </div>
                 <div>
-                    <button onClick={fetchOutput} className="px-4 py-2 bg-blue-500 text-white rounded">
-                        Fetch Output
+                    <button 
+                        onClick={() => window.location.href = '/webcam'} 
+                        className="px-4 py-2 bg-purple-500 text-white rounded mx-auto mt-8 block">
+                        Chat with a Medical Professional
                     </button>
-                    <p className="mt-4">{output}</p>
+                    <div className="pb-24">
+                    </div>
                 </div>
             </div>
             <style jsx>{`
@@ -150,7 +175,7 @@ const Dashboard = () => {
                 }
                 .sidebar {
                     min-width: 350px; /* Adjusted width to make the sidebar wider */
-                    background: #34495e; /* Changed background color */
+                    background: #2c3e50; /* Changed background color to dark purple */
                     color: white;
                     padding: 20px;
                     display: flex;
