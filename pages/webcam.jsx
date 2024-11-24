@@ -23,19 +23,25 @@ export default function Webcam() {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+
+
+
       <ModalProvider>
         <UserSettingsProvider>
           <LocalMediaProvider>
             <BroadcastProvider>
               <BroadcastMixerProvider>
                 <BroadcastLayoutProvider>
-                  <BroadcastApp />
+                  <div className="fixed top-4 right-0 w-[80%] h-128">
+                    <BroadcastApp />
+                  </div>
                 </BroadcastLayoutProvider>
               </BroadcastMixerProvider>
             </BroadcastProvider>
           </LocalMediaProvider>
         </UserSettingsProvider>
       </ModalProvider>
+
       <div>
         <nav className="bg-gray-800 text-white">
           <div className="container mx-auto px-4 flex justify-between items-center h-16">
@@ -45,6 +51,11 @@ export default function Webcam() {
             </div>
           </div>
         </nav>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Queue Update</h2>
+        <p class="text-lg text-gray-700 mb-2">You are in queue spot number <br /> <span class="font-bold text-indigo-600">9</span>!</p>
+        <p class="text-sm text-gray-600">You can either wait <br /> <b>or</b> record and <br />send the video to your right.</p>
       </div>
     </>
   );

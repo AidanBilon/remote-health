@@ -14,11 +14,11 @@ const Dashboard = () => {
 
     const fetchOutput = async () => {
         try {
-            const docRef = doc(db, 'llama-outputs', 'outputs');
+            const docRef = doc(db, 'output', 'output');
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                setOutput(data.output1 || 'No output1 found');
+                setOutput(data.output1[1] || 'No output1 found');
             } else {
                 setOutput('No such document!');
             }
